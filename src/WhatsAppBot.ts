@@ -176,7 +176,7 @@ export class WhatsAppBot {
 
     // Message received event
     this.client.on('message', async (message: Message) => {
-      if (this.config.verbose) {
+      if (this.config.verbose && process.env.TEST_MODE === 'true') {
         console.log(`[WhatsAppBot] Message received from ${message.from}: ${message.body}`);
       }
       this.eventHandlers.onMessage?.(message);
