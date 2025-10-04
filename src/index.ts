@@ -164,7 +164,7 @@ class PrayerReminderBot {
       const simpleDate = `${currentDate.getDate()} ${this.getArabicMonth(currentDate.getMonth())}`;
 
       // Prayer poll question with date
-      const pollQuestion = `❤️ ع ${simpleDate}`;
+      const pollQuestion = `❤️ ${simpleDate}`;
 
       // Poll options - The prayers and religious practices to track
       const pollOptions = POLL_OPTIONS;
