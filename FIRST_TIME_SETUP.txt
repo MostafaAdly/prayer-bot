@@ -1,0 +1,74 @@
+═══════════════════════════════════════════════════════════════════════
+  🕌 Prayer Bot - First Time Setup Commands (Auto-Start on Reboot) 🕌
+═══════════════════════════════════════════════════════════════════════
+
+RUN THESE COMMANDS ONCE TO SET UP AUTO-START ON SYSTEM RESTART:
+
+Step 1: Install dependencies
+────────────────────────────
+yarn install
+(or: npm install)
+
+
+Step 2: Create .env file
+────────────────────────────
+cp .env.example .env
+
+Then edit .env and set:
+  TARGET_CHAT_ID=YOUR_PHONE_NUMBER@c.us
+  TIMEZONE=Africa/Cairo
+  TEST_MODE=false
+
+
+Step 3: Run auto-setup script
+────────────────────────────
+bash SETUP_AUTO_START.sh
+
+This script will:
+  ✅ Build the project
+  ✅ Start the bot with PM2
+  ✅ Show QR code to scan (IMPORTANT: Scan it with WhatsApp!)
+  ✅ Set up auto-start on reboot
+  ✅ Save PM2 configuration
+
+IMPORTANT: When the script shows a command starting with "sudo env PATH=...",
+           YOU MUST COPY AND RUN IT! This enables auto-start.
+
+
+═══════════════════════════════════════════════════════════════════════
+THAT'S IT! Your bot will now start automatically on every reboot.
+═══════════════════════════════════════════════════════════════════════
+
+
+DAILY USAGE COMMANDS:
+────────────────────────────
+yarn pm2:status      - Check if bot is running
+yarn pm2:logs        - View live logs
+yarn pm2:restart     - Restart bot
+yarn pm2:stop        - Stop bot
+yarn pm2:monit       - Real-time monitoring
+
+
+VERIFICATION (After Reboot):
+────────────────────────────
+sudo reboot          - Reboot your system
+pm2 list             - After reboot, check bot is "online"
+
+
+TROUBLESHOOTING:
+────────────────────────────
+If bot isn't running after reboot:
+  pm2 startup        - Check startup configuration
+  pm2 save           - Save process list again
+  pm2 list           - Check current status
+
+
+═══════════════════════════════════════════════════════════════════════
+For detailed documentation, see:
+  - PM2_SETUP.md   (Complete PM2 guide)
+  - README.md      (Full documentation)
+  - COMMANDS.md    (Quick command reference)
+═══════════════════════════════════════════════════════════════════════
+
+May Allah accept our prayers 🤲
+

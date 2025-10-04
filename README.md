@@ -10,6 +10,7 @@ A WhatsApp bot that sends daily prayer polls to remind Muslims about their 5 dai
 - 🌍 **Timezone Support**: Configure your local timezone for accurate scheduling
 - 💬 **Command Support**: Manual commands like `!prayer` and `!help`
 - 🔒 **Session Persistence**: Remembers authentication between restarts
+- 🚀 **PM2 Support**: Auto-start on system reboot with process management
 
 ## 📋 Prayer Poll Contents
 
@@ -109,6 +110,49 @@ On first run:
 4. Scan the QR code
 5. ✅ Bot is now authenticated and will run!
 
+---
+
+## 🔄 Auto-Start on System Reboot (PM2)
+
+Want the bot to automatically start when your computer restarts? Use PM2!
+
+### Quick Setup (One-Time)
+
+**Option 1: Automated Script (Recommended)**
+
+```bash
+bash SETUP_AUTO_START.sh
+```
+
+Follow the prompts, and you're done! 🎉
+
+**Option 2: Manual Setup**
+
+```bash
+# 1. Start with PM2
+yarn pm2:start
+
+# 2. Set up auto-start (run the sudo command PM2 shows you)
+pm2 startup
+
+# 3. Save process list
+pm2 save
+```
+
+### Daily Usage with PM2
+
+```bash
+yarn pm2:status    # Check bot status
+yarn pm2:logs      # View live logs
+yarn pm2:restart   # Restart bot
+yarn pm2:stop      # Stop bot
+yarn pm2:monit     # Real-time monitoring
+```
+
+📚 **Full PM2 Documentation**: See [PM2_SETUP.md](./PM2_SETUP.md) for complete guide.
+
+---
+
 ## 🛠️ Available Commands
 
 ### Bot Commands (Send in WhatsApp)
@@ -118,10 +162,20 @@ On first run:
 
 ### NPM Scripts
 
+**Basic Scripts:**
 - `npm run build` - Compile TypeScript to JavaScript
 - `npm start` - Run the compiled bot
 - `npm run dev` - Run in development mode with ts-node
 - `npm run watch` - Watch for changes and recompile
+
+**PM2 Scripts (Production):**
+- `npm run pm2:start` - Start bot with PM2
+- `npm run pm2:stop` - Stop bot
+- `npm run pm2:restart` - Restart bot
+- `npm run pm2:delete` - Remove bot from PM2
+- `npm run pm2:logs` - View live logs
+- `npm run pm2:status` - Check bot status
+- `npm run pm2:monit` - Real-time monitoring dashboard
 
 ## ⚙️ Configuration
 
